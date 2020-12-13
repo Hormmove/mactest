@@ -1,0 +1,31 @@
+<!--pages/goods_list/index.wxml-->
+<view>
+	<SearchInput/>
+	<Tabs tabs="{{tabs}}" bindItemChange="handleItemChange">
+		<block wx:if="{{tabs[0].isActive}}">
+			<view class="frist_tab">
+				<navigator
+				 url="/pages/goos_detail/index?goods_id={{item.goods_id}}"
+				 open-type="navigate"
+				 class="goods_item"
+				 wx:for="{{shopList}}"
+				 wx:key="goods_id"
+				>
+					<view class="good_img_wrap">
+						<image src="{{item.goods_small_logo?item.goods_small_logo:'https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/139462/27/16888/136718/5fc9e820E3ab74886/d74576e648ef043b.jpg!q80.dpg.webp'}}" mode="widthFix" />
+					</view>
+
+					<view class="good_info_wrap">
+						<view class="goods_name">{{item.goods_name}}</view>
+						<view class="goods_price">￥{{item.goods_price}}</view>
+					</view>
+				</navigator>
+			</view>
+
+		</block>
+		<block wx:if="{{tabs[1].isActive}}">1</block>
+		<block wx:if="{{tabs[2].isActive}}">2</block>
+	</Tabs>
+235, 68, 80
+</view>
+

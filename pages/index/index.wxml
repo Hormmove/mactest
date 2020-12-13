@@ -1,0 +1,81 @@
+<view>
+	<SearchInput/>
+	<view class="index_swiper">
+		<swiper
+		 autoplay
+		 circular
+		 indicator-dots
+		>
+			<swiper-item
+			 class=""
+			 item-id=""
+			 wx:for="{{newDate}}"
+			 wx:key="goods_id"
+			>
+				<navigator
+				 class=""
+				 target=""
+				 url=""
+				 hover-class="navigator-hover"
+				 open-type="navigate"
+				>
+					<image class="" src="{{item.image_src}}" />
+
+				</navigator>
+
+			</swiper-item>
+
+		</swiper>
+
+	</view>
+
+	<view class="index_catelist">
+		<navigator
+		 open-type="navigate"
+		 wx:for="{{cateList}}"
+		 wx:key="name"
+		>
+			<image mode="widthFix" src="{{item.image_src}}" />
+		</navigator>
+
+	</view>
+	<!-- 楼层开始 -->
+
+	<view class="index_floorlist">
+		<view
+		 class="floor_group"
+		 wx:for="{{floorList}}"
+		 wx:for-item="item1"
+		 wx:for-index="index1"
+		 wx:key="floor_title"
+		>
+			<view class="floor_title">
+				<image
+				 class=""
+				 src="{{item1.floor_title.image_src}}"
+				 mode="widthFix"
+				/>
+			</view>
+			<view class="floor_list">
+				<navigator
+				 open-type="navigate"
+				 wx:for="{{item1.product_list}}"
+				 wx:for-item="item2"
+				 wx:for-index="index2"
+				 wx:key="name"
+				>
+					<image
+					 class=""
+					 src="{{item2.image_src}}"
+					 mode="{{index2===0?'widthFix':'scaleToFill'}}"
+					/>
+
+				</navigator>
+
+			</view>
+		</view>
+
+	</view>
+
+</view>
+
